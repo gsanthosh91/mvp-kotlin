@@ -15,14 +15,13 @@ class MainActivity : BaseActivity(), MainIPresenter.TicketIView, TodoAdapter.Cli
     private lateinit var binding: ActivityMainBinding
 
     override fun getLayoutId(): Int {
-        return R.layout.activity_main;
+        return R.layout.activity_main
     }
 
     override fun initView() {
         presenter.attachView(this)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         presenter.todos()
     }
 

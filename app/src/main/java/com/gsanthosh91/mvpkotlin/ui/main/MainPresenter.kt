@@ -1,5 +1,6 @@
 package com.gsanthosh91.mvpkotlin.ui.main
 
+import android.annotation.SuppressLint
 import com.gsanthosh91.mvpkotlin.base.BasePresenter
 import com.gsanthosh91.mvpkotlin.data.TodoItem
 import com.gsanthosh91.mvpkotlin.data.network.APIClient
@@ -14,11 +15,11 @@ class MainPresenter<V : MainIPresenter.TicketIView> : BasePresenter<V>(), MainIP
 
     override fun todos() {
         val modelObservable: Observable<List<TodoItem>> = apiClient.todos()
-        val subscribe = modelObservable.subscribeOn(Schedulers.computation())
+        modelObservable.subscribeOn(Schedulers.computation())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 getMvpView().todos(it)
-            }) { it ->
+            }) {
                 val e = it as Throwable
                 getMvpView().onError(e)
             }

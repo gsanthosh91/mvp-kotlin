@@ -1,6 +1,7 @@
 package com.gsanthosh91.mvpkotlin.base
 
 import android.app.Activity
+import com.gsanthosh91.mvpkotlin.MvpApplication
 import io.reactivex.disposables.CompositeDisposable
 
 open class BasePresenter<V : MvpView> {
@@ -14,6 +15,10 @@ open class BasePresenter<V : MvpView> {
 
     fun activity(): Activity? {
         return getMvpView().activity()
+    }
+
+    open fun appContext(): MvpApplication? {
+        return MvpApplication.mInstance
     }
 
     fun attachView(mvpView: V) {

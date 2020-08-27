@@ -15,7 +15,7 @@ import java.net.UnknownHostException
 
 abstract class BaseFragment : Fragment(), MvpView {
 
-    var view1: View? = null
+    private var view1: View? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,

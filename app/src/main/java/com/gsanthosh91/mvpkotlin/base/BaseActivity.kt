@@ -42,7 +42,7 @@ abstract class BaseActivity : AppCompatActivity(), MvpView {
     }
 
     open fun dialPhone(phone: String) {
-        startActivity(Intent(Intent.ACTION_DIAL).apply { data = Uri.parse("tel:" + phone) })
+        startActivity(Intent(Intent.ACTION_DIAL).apply { data = Uri.parse("tel:$phone") })
     }
 
     open fun openWeb(url: String) {
