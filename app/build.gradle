@@ -70,5 +70,8 @@ dependencies {
 
     implementation 'com.pixplicity.easyprefs:library:1.9.0'
     implementation 'io.coil-kt:coil:1.0.0-rc3'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.5.1'
 
 }

@@ -1,5 +1,6 @@
 package com.gsanthosh91.mvpkotlin.data.network
 
+import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.gsanthosh91.mvpkotlin.BuildConfig
 import com.gsanthosh91.mvpkotlin.MvpApplication
 import com.pixplicity.easyprefs.library.Prefs
@@ -37,6 +38,7 @@ class APIClient {
             val interceptor = HttpLoggingInterceptor()
             return OkHttpClient().newBuilder()
                 .cache(Cache(MvpApplication.mInstance.getCacheDir(), 10 * 1024 * 1024))
+                .addNetworkInterceptor(StethoInterceptor())
                 .connectTimeout(5, TimeUnit.MINUTES)
                 .addNetworkInterceptor(AddHeaderInterceptor())
                 .readTimeout(5, TimeUnit.MINUTES)

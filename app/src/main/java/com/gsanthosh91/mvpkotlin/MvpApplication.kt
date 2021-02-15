@@ -2,6 +2,7 @@ package com.gsanthosh91.mvpkotlin
 
 import android.app.Application
 import android.content.ContextWrapper
+import com.facebook.stetho.Stetho
 import com.pixplicity.easyprefs.library.Prefs
 
 class MvpApplication : Application() {
@@ -21,6 +22,10 @@ class MvpApplication : Application() {
             .setPrefsName(packageName)
             .setUseDefaultSharedPreference(true)
             .build()
+
+        if (BuildConfig.DEBUG) {
+            Stetho.initializeWithDefaults(this)
+        }
     }
 
 }
