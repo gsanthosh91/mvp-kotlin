@@ -13,7 +13,7 @@ open class BasePresenter<V : MvpView> {
 
     private var mMvpView: V? = null
 
-    fun activity(): Activity? {
+    fun activity(): Activity {
         return getMvpView().activity()
     }
 

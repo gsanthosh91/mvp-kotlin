@@ -1,18 +1,24 @@
 package com.gsanthosh91.mvpkotlin.base
 
+import android.Manifest
 import android.annotation.TargetApi
 import android.app.Activity
+import android.app.DownloadManager
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.Environment
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.gsanthosh91.mvpkotlin.R
 import org.json.JSONObject
 import retrofit2.HttpException
 import retrofit2.Response
+import java.io.File
 import java.net.UnknownHostException
 
 abstract class BaseActivity : AppCompatActivity(), MvpView {
@@ -47,6 +53,50 @@ abstract class BaseActivity : AppCompatActivity(), MvpView {
 
     open fun openWeb(url: String) {
         startActivity(Intent(Intent.ACTION_VIEW).apply { data = Uri.parse(url) })
+    }
+
+    fun download(url: String) =
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            downloadFile(url)
+        } else {
+            if (hasPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) && hasPermission(Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                downloadFile(url)
+            } else {
+                Toast.makeText(activity(), "Permission Required to Download", Toast.LENGTH_SHORT)
+                    .show()
+                requestPermissionsSafely(
+                    arrayOf(
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.READ_EXTERNAL_STORAGE
+                    ), 101
+                )
+            }
+        }
+
+    private fun downloadFile(url: String) {
+
+        val fileName: String = url.substring(url.lastIndexOf('/') + 1, url.length)
+        val direct = File(getExternalFilesDir(null), "/${R.string.app_name}")
+        if (!direct.exists()) {
+            direct.mkdirs()
+        }
+        val mgr = getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
+        val downloadUri = Uri.parse(url)
+        val request = DownloadManager.Request(
+            downloadUri
+        )
+        request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI or DownloadManager.Request.NETWORK_MOBILE)
+            .setAllowedOverRoaming(false)
+            .setTitle(getString(R.string.app_name)) //Download Manager Title
+            .setDescription("Downloading...") //Download Manager description
+            .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
+            .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+            .setDestinationInExternalPublicDir(
+                Environment.DIRECTORY_PICTURES,
+                "/${R.string.app_name}/" + fileName  //Your User define(Non Standard Directory name)/File Name
+            )
+
+        val downloadID = mgr.enqueue(request)
     }
 
     override fun onError(error: Throwable?) {
