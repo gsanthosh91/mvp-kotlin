@@ -31,7 +31,7 @@ abstract class BaseFragment : Fragment(), MvpView {
 
     abstract fun getLayoutId(): Int
 
-    abstract fun initView(view: View?): View?
+    abstract fun initView(view: View?)
 
     override fun activity(): Activity {
         return activity!!

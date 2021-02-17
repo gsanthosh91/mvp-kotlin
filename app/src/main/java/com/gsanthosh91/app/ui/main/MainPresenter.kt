@@ -8,12 +8,12 @@ import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-class MainPresenter<V : MainIPresenter.TicketIView> : BasePresenter<V>(), MainIPresenter<V> {
+class MainPresenter<V : MainIPresenter.MainIView> : BasePresenter<V>(), MainIPresenter<V> {
 
     private var apiClient: ApiInterface = APIClient.client
 
     override fun todos() {
-        val modelObservable: Observable<List<TodoItem>> = apiClient.todos()
+        /*val modelObservable: Observable<List<TodoItem>> = apiClient.todos()
         modelObservable.subscribeOn(Schedulers.computation())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
@@ -21,6 +21,6 @@ class MainPresenter<V : MainIPresenter.TicketIView> : BasePresenter<V>(), MainIP
             }) {
                 val e = it as Throwable
                 getMvpView().onError(e)
-            }
+            }*/
     }
 }
