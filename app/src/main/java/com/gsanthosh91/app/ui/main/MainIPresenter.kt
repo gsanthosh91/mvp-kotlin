@@ -1,8 +1,8 @@
-package com.gsanthosh91.mvpkotlin.ui.main
+package com.gsanthosh91.app.ui.main
 
-import com.gsanthosh91.mvpkotlin.base.MvpPresenter
-import com.gsanthosh91.mvpkotlin.base.MvpView
-import com.gsanthosh91.mvpkotlin.data.TodoItem
+import com.gsanthosh91.app.base.MvpPresenter
+import com.gsanthosh91.app.base.MvpView
+import com.gsanthosh91.app.data.TodoItem
 
 interface MainIPresenter<V : MainIPresenter.TicketIView> : MvpPresenter<V> {
 

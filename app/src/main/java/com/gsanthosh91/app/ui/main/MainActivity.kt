@@ -1,13 +1,13 @@
-package com.gsanthosh91.mvpkotlin.ui.main
+package com.gsanthosh91.app.ui.main
 
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.gsanthosh91.mvpkotlin.R
-import com.gsanthosh91.mvpkotlin.base.BaseActivity
-import com.gsanthosh91.mvpkotlin.data.TodoItem
-import com.gsanthosh91.mvpkotlin.databinding.ActivityMainBinding
-import com.gsanthosh91.mvpkotlin.ui.adapter.TodoAdapter
+import com.gsanthosh91.app.R
+import com.gsanthosh91.app.base.BaseActivity
+import com.gsanthosh91.app.data.TodoItem
+import com.gsanthosh91.app.databinding.ActivityMainBinding
+import com.gsanthosh91.app.ui.adapter.TodoAdapter
 
 class MainActivity : BaseActivity(), MainIPresenter.TicketIView, TodoAdapter.ClickListener {
 

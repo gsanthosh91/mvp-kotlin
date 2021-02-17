@@ -1,4 +1,4 @@
-package com.gsanthosh91.mvpkotlin
+package com.gsanthosh91.app
 
 import android.app.Application
 import android.content.ContextWrapper

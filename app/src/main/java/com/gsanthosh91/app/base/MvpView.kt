@@ -1,4 +1,4 @@
-package com.gsanthosh91.mvpkotlin.base
+package com.gsanthosh91.app.base
 
 import android.app.Activity
 

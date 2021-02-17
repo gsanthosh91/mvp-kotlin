@@ -1,8 +1,8 @@
-package com.gsanthosh91.mvpkotlin.data.network
+package com.gsanthosh91.app.data.network
 
 import com.facebook.stetho.okhttp3.StethoInterceptor
-import com.gsanthosh91.mvpkotlin.BuildConfig
-import com.gsanthosh91.mvpkotlin.MvpApplication
+import com.gsanthosh91.app.BuildConfig
+import com.gsanthosh91.app.MvpApplication
 import com.pixplicity.easyprefs.library.Prefs
 import okhttp3.Cache
 import okhttp3.Interceptor

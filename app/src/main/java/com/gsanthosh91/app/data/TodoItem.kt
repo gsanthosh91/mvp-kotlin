@@ -1,4 +1,4 @@
-package com.gsanthosh91.mvpkotlin.data
+package com.gsanthosh91.app.data
 
 class TodoItem {
     var userId: Int = 0

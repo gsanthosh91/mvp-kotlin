@@ -1,4 +1,4 @@
-package com.gsanthosh91.mvpkotlin.base
+package com.gsanthosh91.app.base
 
 import android.Manifest
 import android.annotation.TargetApi
@@ -14,7 +14,7 @@ import android.os.Environment
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.gsanthosh91.mvpkotlin.R
+import com.gsanthosh91.app.R
 import org.json.JSONObject
 import retrofit2.HttpException
 import retrofit2.Response

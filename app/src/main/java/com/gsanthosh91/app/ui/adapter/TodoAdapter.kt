@@ -1,12 +1,12 @@
-package com.gsanthosh91.mvpkotlin.ui.adapter
+package com.gsanthosh91.app.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.gsanthosh91.mvpkotlin.R
-import com.gsanthosh91.mvpkotlin.data.TodoItem
+import com.gsanthosh91.app.R
+import com.gsanthosh91.app.data.TodoItem
 
 class TodoAdapter(private val list: List<TodoItem>, private val clickListener: ClickListener) :
     RecyclerView.Adapter<TodoAdapter.MyViewHolder>() {

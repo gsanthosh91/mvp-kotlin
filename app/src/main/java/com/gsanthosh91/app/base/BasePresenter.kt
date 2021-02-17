@@ -1,7 +1,7 @@
-package com.gsanthosh91.mvpkotlin.base
+package com.gsanthosh91.app.base
 
 import android.app.Activity
-import com.gsanthosh91.mvpkotlin.MvpApplication
+import com.gsanthosh91.app.MvpApplication
 import io.reactivex.disposables.CompositeDisposable
 
 open class BasePresenter<V : MvpView> {

@@ -1,4 +1,4 @@
-package com.gsanthosh91.mvpkotlin.base
+package com.gsanthosh91.app.base
 
 import android.app.Activity
 import android.os.Bundle
@@ -7,13 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import org.json.JSONObject
 import retrofit2.HttpException
 import retrofit2.Response
 import java.net.UnknownHostException
 
-abstract class BaseFragment : Fragment(), MvpView {
+abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment(), MvpView {
 
     private var view1: View? = null
 
@@ -31,7 +31,7 @@ abstract class BaseFragment : Fragment(), MvpView {
 
     abstract fun getLayoutId(): Int
 
-    abstract fun initView(view: View?): View?
+    abstract fun initView(view: View?)
 
     override fun activity(): Activity {
         return activity!!

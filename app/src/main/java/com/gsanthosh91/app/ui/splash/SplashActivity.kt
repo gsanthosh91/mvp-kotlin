@@ -1,13 +1,13 @@
-package com.gsanthosh91.mvpkotlin.ui.splash
+package com.gsanthosh91.app.ui.splash
 
 import android.content.Intent
 import android.os.Handler
 import android.os.Looper
-import com.gsanthosh91.mvpkotlin.BuildConfig
-import com.gsanthosh91.mvpkotlin.R
-import com.gsanthosh91.mvpkotlin.base.BaseActivity
-import com.gsanthosh91.mvpkotlin.databinding.ActivitySplashBinding
-import com.gsanthosh91.mvpkotlin.ui.main.MainActivity
+import com.gsanthosh91.app.BuildConfig
+import com.gsanthosh91.app.R
+import com.gsanthosh91.app.base.BaseActivity
+import com.gsanthosh91.app.databinding.ActivitySplashBinding
+import com.gsanthosh91.app.ui.main.MainActivity
 import com.pixplicity.easyprefs.library.Prefs
 
 class SplashActivity : BaseActivity(), SplashIPresenter.SplashIView {
