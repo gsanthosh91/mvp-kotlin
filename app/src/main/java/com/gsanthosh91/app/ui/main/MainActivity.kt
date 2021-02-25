@@ -3,6 +3,8 @@ package com.gsanthosh91.app.ui.main
 import android.content.Intent
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
@@ -17,7 +19,8 @@ import com.gsanthosh91.app.base.BaseActivity
 import com.gsanthosh91.app.databinding.ActivityMainBinding
 import com.gsanthosh91.app.ui.splash.SplashActivity
 
-class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener, MainIPresenter.MainIView {
+class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener,
+    MainIPresenter.MainIView, Toolbar.OnMenuItemClickListener {
 
     private var presenter: MainPresenter<MainActivity> = MainPresenter()
     private lateinit var binding: ActivityMainBinding
@@ -30,12 +33,17 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         presenter.attachView(this)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        //setSupportActionBar(binding.appBarMain.toolbar)
         binding.navView.setNavigationItemSelectedListener(this)
-        binding.appBarMain.menu.setOnClickListener(clickListener)
+        binding.appBarMain.toolbar.setNavigationOnClickListener {
+            binding.drawerLayout.openDrawer(GravityCompat.START)
+        }
+        binding.appBarMain.toolbar.setOnMenuItemClickListener(this)
 
         val adapter = TabPagerAdapter(supportFragmentManager, lifecycle)
         adapter.addFragment(HomeFragment(), "Home")
         adapter.addFragment(HomeFragment(), "Profile")
+        adapter.addFragment(HomeFragment(), "Settings")
         binding.appBarMain.container.adapter = adapter;
         TabLayoutMediator(
             binding.appBarMain.tabs,
@@ -43,23 +51,16 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         ) { tab: TabLayout.Tab, position: Int -> tab.text = adapter.getTitle(position) }.attach()
     }
 
-    /*override fun todos(todoList: List<TodoItem>) {
-
-        binding.todoRv.apply {
-            layoutManager = LinearLayoutManager(activity(), RecyclerView.VERTICAL, false)
-            adapter = TodoAdapter(todoList, this@MainActivity)
-        }
-    }*/
 
     private val clickListener = View.OnClickListener { view ->
         when (view.id) {
-            R.id.menu -> {
+            /*R.id.menu -> {
                 if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
                     binding.drawerLayout.closeDrawer(GravityCompat.START)
                 } else {
                     binding.drawerLayout.openDrawer(GravityCompat.START)
                 }
-            }
+            }*/
         }
     }
 
@@ -95,5 +96,15 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         val drawer: DrawerLayout = findViewById(R.id.drawer_layout)
         drawer.closeDrawer(GravityCompat.START)
         return false
+    }
+
+    override fun onMenuItemClick(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.favorite -> {
+                Toast.makeText(activity(), "fav", Toast.LENGTH_SHORT).show()
+                true
+            }
+            else -> false
+        }
     }
 }

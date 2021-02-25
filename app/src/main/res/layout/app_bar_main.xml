@@ -11,14 +11,17 @@
         android:layout_height="wrap_content"
         android:theme="@style/Theme.AppTheme.AppBarOverlay">
 
-        <androidx.appcompat.widget.Toolbar
+        <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:menu="@menu/top_app_bar"
+            app:navigationIcon="@drawable/ic_menu"
+            app:popupTheme="@style/Theme.AppTheme.PopupOverlay"
+            app:title="@string/app_name">
 
-            <LinearLayout
+            <!--<LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
@@ -44,16 +47,16 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
-            </LinearLayout>
+            </LinearLayout>-->
 
-        </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.MaterialToolbar>
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
             style="@style/Widget.MaterialComponents.TabLayout.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabMode="scrollable" />
+            app:tabMode="fixed" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
