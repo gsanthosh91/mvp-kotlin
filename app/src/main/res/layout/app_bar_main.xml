@@ -9,13 +9,13 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:theme="@style/Theme.AppTheme.AppBarOverlay">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorPrimary"
+            android:background="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <LinearLayout
@@ -53,7 +53,6 @@
             style="@style/Widget.MaterialComponents.TabLayout.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabIndicatorColor="@color/colorAccent"
             app:tabMode="scrollable" />
 
     </com.google.android.material.appbar.AppBarLayout>

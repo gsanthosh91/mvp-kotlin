@@ -20,7 +20,6 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/_4sdp"
             android:scaleType="centerInside"
-            android:src="@drawable/ic_launcher_foreground"
-            android:tint="@color/colorAccent" />
+            android:src="@drawable/ic_launcher_foreground" />
     </LinearLayout>
 </FrameLayout>
