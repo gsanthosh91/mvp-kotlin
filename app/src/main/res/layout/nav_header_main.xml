@@ -1,25 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_150sdp"
+    android:layout_height="@dimen/nav_header_height"
     android:background="#EEE"
-    android:gravity="center|bottom"
-    android:orientation="horizontal"
+    android:gravity="bottom"
+    android:orientation="vertical"
     android:padding="@dimen/_12sdp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:gravity="bottom|center_horizontal"
-        android:orientation="vertical">
-
-        <ImageView
-            android:layout_width="@dimen/_150sdp"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/_4sdp"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_launcher_foreground" />
-    </LinearLayout>
-</FrameLayout>
+    <ImageView
+        android:layout_width="76dp"
+        android:layout_height="76dp"
+        android:scaleType="fitStart"
+        android:src="@drawable/ic_launcher_foreground" />
+</LinearLayout>
