@@ -37,12 +37,12 @@ class APIClient {
         private fun getHttpClient(): OkHttpClient {
             val interceptor = HttpLoggingInterceptor()
             return OkHttpClient().newBuilder()
-                .cache(Cache(MvpApplication.mInstance.getCacheDir(), 10 * 1024 * 1024))
+                .cache(Cache(MvpApplication.mInstance.cacheDir, 10 * 1024 * 1024))
                 .addNetworkInterceptor(StethoInterceptor())
-                .connectTimeout(5, TimeUnit.MINUTES)
+                .connectTimeout(2, TimeUnit.MINUTES)
                 .addNetworkInterceptor(AddHeaderInterceptor())
-                .readTimeout(5, TimeUnit.MINUTES)
-                .writeTimeout(5, TimeUnit.MINUTES)
+                .readTimeout(2, TimeUnit.MINUTES)
+                .writeTimeout(2, TimeUnit.MINUTES)
                 .retryOnConnectionFailure(true)
                 .addInterceptor(interceptor)
                 .build()
@@ -56,7 +56,6 @@ class APIClient {
         override fun intercept(chain: Interceptor.Chain): Response {
             val builder = chain.request().newBuilder()
             builder.addHeader("X-Requested-With", "XMLHttpRequest")
-            builder.addHeader("Accept", "application/json")
             builder.addHeader("Authorization", Prefs.getString("access_token", ""))
             return chain.proceed(builder.build())
         }

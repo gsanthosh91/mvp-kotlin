@@ -31,11 +31,11 @@ class SplashActivity : BaseActivity(), SplashIPresenter.SplashIView {
 
         Handler(Looper.getMainLooper()).postDelayed({
             if (Prefs.getBoolean("logged_in", false)) {
-                val mainIntent = Intent(this, MainActivity::class.java)
+                val mainIntent = Intent(activity(), MainActivity::class.java)
                 startActivity(mainIntent)
                 finishAffinity()
             } else {
-                val mainIntent = Intent(this, MainActivity::class.java)
+                val mainIntent = Intent(activity(), MainActivity::class.java)
                 startActivity(mainIntent)
                 finishAffinity()
             }

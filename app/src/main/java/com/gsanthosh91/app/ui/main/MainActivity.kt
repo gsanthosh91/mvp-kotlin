@@ -44,7 +44,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         adapter.addFragment(HomeFragment(), "Home")
         adapter.addFragment(HomeFragment(), "Profile")
         adapter.addFragment(HomeFragment(), "Settings")
-        binding.appBarMain.container.adapter = adapter;
+        binding.appBarMain.container.adapter = adapter
         TabLayoutMediator(
             binding.appBarMain.tabs,
             binding.appBarMain.container
@@ -53,18 +53,18 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
 
     private val clickListener = View.OnClickListener { view ->
-        when (view.id) {
-            /*R.id.menu -> {
+        /*when (view.id) {
+            R.id.menu -> {
                 if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
                     binding.drawerLayout.closeDrawer(GravityCompat.START)
                 } else {
                     binding.drawerLayout.openDrawer(GravityCompat.START)
                 }
-            }*/
-        }
+            }
+        }*/
     }
 
-    private class TabPagerAdapter internal constructor(fm: FragmentManager, lifecycle: Lifecycle) :
+    private class TabPagerAdapter(fm: FragmentManager, lifecycle: Lifecycle) :
         FragmentStateAdapter(fm, lifecycle) {
 
         private val mFragmentList: MutableList<Fragment> = ArrayList()
