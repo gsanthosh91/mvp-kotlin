@@ -20,7 +20,8 @@
         <activity
             android:name="com.gsanthosh91.app.ui.splash.SplashActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppTheme.NoActionBar">
+            android:theme="@style/Theme.AppTheme.NoActionBar"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

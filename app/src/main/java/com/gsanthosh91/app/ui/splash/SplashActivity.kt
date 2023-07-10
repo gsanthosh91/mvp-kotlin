@@ -1,5 +1,6 @@
 package com.gsanthosh91.app.ui.splash
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Handler
 import android.os.Looper
@@ -10,6 +11,7 @@ import com.gsanthosh91.app.databinding.ActivitySplashBinding
 import com.gsanthosh91.app.ui.main.MainActivity
 import com.pixplicity.easyprefs.library.Prefs
 
+@SuppressLint("CustomSplashScreen")
 class SplashActivity : BaseActivity(), SplashIPresenter.SplashIView {
 
     private var presenter: SplashPresenter<SplashActivity> = SplashPresenter()
